@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { projectsApi } from '../utils/api';
+import { projects } from '../utils/api';
 import { ArrowLeft, Save, Trash2, Copy, Check, RefreshCw } from 'lucide-react';
 
 export default function ProjectSettings() {
@@ -24,7 +24,7 @@ export default function ProjectSettings() {
 
   const loadProject = async () => {
     try {
-      const res = await projectsApi.get(projectId);
+      const res = await projects.get(projectId);
       const data = res.data;
       setProject(data);
       setName(data.name);
@@ -43,7 +43,7 @@ export default function ProjectSettings() {
     setSaving(true);
     setMessage('');
     try {
-      await projectsApi.update(projectId, { name, description, repoUrl, language });
+      await projects.update(projectId, { name, description, repoUrl, language });
       setMessage('Settings saved successfully');
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
@@ -55,7 +55,7 @@ export default function ProjectSettings() {
 
   const handleRegenerateKey = async () => {
     try {
-      const res = await projectsApi.regenerateKey(projectId);
+      const res = await projects.regenerateKey(projectId);
       setProject({ ...project, apiKey: res.data.apiKey });
       setMessage('API key regenerated');
       setTimeout(() => setMessage(''), 3000);
@@ -67,7 +67,7 @@ export default function ProjectSettings() {
   const handleDelete = async () => {
     setDeleting(true);
     try {
-      await projectsApi.delete(projectId);
+      await projects.delete(projectId);
       navigate('/dashboard');
     } catch (error) {
       setMessage('Failed to delete project');

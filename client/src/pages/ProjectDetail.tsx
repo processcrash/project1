@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { projects as projectsApi, reviews as reviewsApi } from '../utils/api';
 import { Project, Review } from '../types';
-import { ArrowLeft, Code, Copy, Check, RefreshCw, Trash2, Play } from 'lucide-react';
+import { ArrowLeft, Code, Copy, Check, RefreshCw, Play } from 'lucide-react';
 
 export default function ProjectDetail() {
   const { id } = useParams<{ id: string }>();

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { projectsApi } from '../utils/api';
-import { ArrowLeft, Webhook, Copy, Check, RefreshCw, Play, Pause, Trash2, Plus } from 'lucide-react';
+import { ArrowLeft, Webhook, Copy, Check, Play, Pause, Trash2, Plus } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 interface WebhookEndpoint {

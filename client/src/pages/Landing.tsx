@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Shield, Zap, Github, Star, ArrowRight, CheckCircle, Users, Code, Bug } from 'lucide-react';
+import { Shield, Zap, Github, Star, CheckCircle, Users, Code, Bug } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Landing() {

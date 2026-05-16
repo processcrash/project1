@@ -10,18 +10,8 @@ interface SystemStatus {
   lastUpdated: string;
 }
 
-interface Incident {
-  id: string;
-  type: 'warning' | 'error' | 'info';
-  title: string;
-  description: string;
-  timestamp: string;
-  resolved: boolean;
-}
-
 export default function Status() {
   const [status, setStatus] = useState<SystemStatus | null>(null);
-  const [incidents, setIncidents] = useState<Incident[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -34,7 +24,7 @@ export default function Status() {
 
   const checkStatus = async () => {
     try {
-      const res = await api.get('/analytics/stats');
+      await api.get('/analytics/stats');
       setStatus({
         api: 'operational',
         ai: 'operational',
@@ -168,41 +158,10 @@ export default function Status() {
         {/* Incidents */}
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Recent Incidents</h2>
-          {incidents.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
-              <CheckCircle className="h-12 w-12 mx-auto mb-3 text-green-500 opacity-50" />
-              <p>No recent incidents</p>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              {incidents.map(incident => (
-                <div
-                  key={incident.id}
-                  className={`p-4 rounded-lg border ${
-                    incident.resolved ? 'bg-gray-50 border-gray-200' : 'bg-red-50 border-red-200'
-                  }`}
-                >
-                  <div className="flex items-center gap-2 mb-2">
-                    {incident.resolved ? (
-                      <CheckCircle className="h-5 w-5 text-green-500" />
-                    ) : (
-                      <XCircle className="h-5 w-5 text-red-500" />
-                    )}
-                    <h3 className="font-medium text-gray-900">{incident.title}</h3>
-                    {incident.resolved && (
-                      <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                        Resolved
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-sm text-gray-600">{incident.description}</p>
-                  <p className="text-xs text-gray-400 mt-2">
-                    {new Date(incident.timestamp).toLocaleString()}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="text-center py-8 text-gray-500">
+            <CheckCircle className="h-12 w-12 mx-auto mb-3 text-green-500 opacity-50" />
+            <p>No recent incidents</p>
+          </div>
         </div>
 
         {/* Subscribe */}

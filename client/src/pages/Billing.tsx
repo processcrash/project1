@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../contexts/AuthContext';
 import api from '../utils/api';
-import { Loader, CreditCard, Check, X } from 'lucide-react';
+import { Loader, CreditCard, Check } from 'lucide-react';
 
 interface UsageStats {
   tier: 'free' | 'pro' | 'team';
@@ -22,7 +21,6 @@ interface Plan {
 }
 
 export default function Billing() {
-  const { user } = useAuth();
   const [usage, setUsage] = useState<UsageStats | null>(null);
   const [plans, setPlans] = useState<Record<string, Plan>>({});
   const [isLoading, setIsLoading] = useState(true);

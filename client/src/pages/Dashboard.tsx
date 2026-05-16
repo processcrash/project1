@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { projects as projectsApi, reviews as reviewsApi } from '../utils/api';
 import api from '../utils/api';
 import { Project, Review } from '../types';
-import { Plus, Code, Folder, Clock, AlertCircle, CheckCircle, Loader, TrendingUp, Users, Star } from 'lucide-react';
+import { Plus, Code, Folder, Clock, AlertCircle, CheckCircle, Loader, TrendingUp } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Onboarding from '../components/Onboarding';
 
@@ -16,7 +16,6 @@ interface UserStats {
 
 export default function Dashboard() {
   const { user } = useAuth();
-  const navigate = useNavigate();
   const [projectList, setProjectList] = useState<Project[]>([]);
   const [recentReviews, setRecentReviews] = useState<Review[]>([]);
   const [userStats, setUserStats] = useState<UserStats | null>(null);
