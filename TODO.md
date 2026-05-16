@@ -47,8 +47,9 @@
 - [x] Rate limiting middleware
 - [x] Team management (invitations, roles)
 - [x] Dark mode support
+- [x] Webhook configuration UI
+- [x] Email notification templates
 - [ ] GitHub App integration (advanced)
-- [ ] Webhook configuration UI
 
 ## Phase 7: Billing ✅
 - [x] Stripe integration
@@ -87,15 +88,25 @@
 - Phase 7: Completed
 - Phase 8: Near Complete (1-2 days to deploy)
 
-## Next Steps
+## Next Steps (In Progress - Making Money)
 
-1. Push code to GitHub: `git remote add origin https://github.com/processcrash/project1.git && git push -u origin master`
-2. Deploy to Railway (backend) + Vercel (frontend)
-3. Configure environment variables in production
-4. Set up Stripe products ($15 Pro, $49 Team)
-5. Configure Sentry for error tracking
-6. Set up GitHub App for automated PR reviews
-7. Launch marketing campaign
+1. ✅ Code pushed to GitHub (bb7021b)
+2. [ ] Deploy to Railway + Vercel (do this first!)
+3. [ ] Configure production environment variables
+4. [ ] Set up Stripe products in Stripe Dashboard
+5. [ ] Configure Sentry for error tracking
+6. [ ] Add custom domain (codesentinel.ai)
+7. [ ] Launch marketing campaign
+8. [ ] Post to HackerNews, Dev.to, Twitter
+9. [ ] Monitor metrics and iterate
+
+## Marketing Strategy
+
+- Post on HackerNews "Show HN" when deployed
+- Write Dev.to article about AI code review
+- Create Twitter account with coding tips
+- Target: indie hackers, solo developers, small startups
+- Pricing: $15/mo Pro, $49/mo Team (competitive with GitHub Copilot $10/mo)
 
 ## Target Milestones
 - MVP Deploy: 1-2 days
