@@ -4,11 +4,26 @@
   <img src="https://img.shields.io/badge/AI-Code%20Review-0ea5e9?style=for-the-badge" alt="AI Code Review">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/TypeScript-Ready-3178c6?style=for-the-badge" alt="TypeScript">
+  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge" alt="PRs Welcome">
+  <a href="https://twitter.com/codesentinelai">
+    <img src="https://img.shields.io/badge/Twitter-Follow-blue?style=for-the-badge" alt="Follow @codesentinelai">
+  </a>
 </div>
 
 ## Overview
 
 **CodeSentinel** is an AI-powered code review platform that leverages GPT-4 and Claude AI to automatically analyze code, detect bugs, security vulnerabilities, and provide actionable improvement suggestions.
+
+> 🚀 **Live at [codesentinel.ai](https://codesentinel.ai)** - Start free with 100 reviews/month!
+
+## Why CodeSentinel?
+
+- ⚡ **10x Faster Reviews** - Get detailed feedback in seconds, not hours
+- 🔒 **Catch Security Issues** - Find SQL injection, XSS, auth bypasses before production
+- 📊 **Quality Metrics** - Track code quality trends over time
+- 🔄 **GitHub Integration** - Automatic PR reviews with inline comments
+- 👥 **Team Collaboration** - Invite members, track team metrics
+- 💰 **Freemium Model** - Start free, scale as you grow
 
 ## Features
 
@@ -20,8 +35,9 @@
 - **Issue Tracking**: Categorized issues (Critical, High, Medium, Low)
 - **Team Collaboration**: Invite team members and track team metrics
 - **Slack Notifications**: Get review results delivered to your Slack channels
-- **Billing**: Subscription tiers (Free/Pro/Team) with Stripe integration
+- **Billing**: Subscription tiers (Free/Pro $15/Team $49) with Stripe integration
 - **RESTful API**: Easy integration with CI/CD pipelines
+- **Dark Mode**: Built-in dark mode support
 
 ## Tech Stack
 
@@ -150,7 +166,11 @@ curl -X POST http://localhost:3001/api/reviews \
 
 ## Deployment
 
-### Backend (Railway/Render)
+See [DEPLOY.md](DEPLOY.md) for detailed deployment instructions.
+
+### Quick Deploy
+
+**Backend (Railway)**
 
 1. Connect your GitHub repository
 2. Set environment variables (see .env.production)
