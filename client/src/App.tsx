@@ -11,6 +11,7 @@ import ProjectSettings from './pages/ProjectSettings';
 import Billing from './pages/Billing';
 import Status from './pages/Status';
 import TeamSettings from './pages/TeamSettings';
+import WebhookSettings from './pages/WebhookSettings';
 import Onboarding from './components/Onboarding';
 import Layout from './components/Layout';
 
@@ -93,6 +94,16 @@ function AppRoutes() {
           <ProtectedRoute>
             <Layout>
               <TeamSettings />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/projects/:id/webhooks"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <WebhookSettings />
             </Layout>
           </ProtectedRoute>
         }
