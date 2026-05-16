@@ -2,7 +2,14 @@
   "hooks": {
     "onExit": [
       {
-        "command": "echo '[会话结束] 任务完成时间: $(date)'"
+        "hooks": {
+          "onExit": [
+            {
+              "command": "node .claude/hooks/on-exit.js",
+              "cwd": "${CLAUDE_PROJECT_DIR}"
+            }
+          ]
+        }
       }
     ]
   }

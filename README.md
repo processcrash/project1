@@ -15,10 +15,12 @@
 - **AI-Powered Analysis**: Utilizes GPT-4 and Claude AI for comprehensive code review
 - **Multi-Language Support**: JavaScript, TypeScript, Python, Go, Rust, Java, C++, and more
 - **Security Scanning**: Automatic detection of security vulnerabilities
-- **GitHub Integration**: Webhook support for automated PR reviews
+- **GitHub Integration**: Webhook support for automated PR reviews + GitHub Actions
 - **Quality Scoring**: 1-10 code quality scores with detailed breakdowns
 - **Issue Tracking**: Categorized issues (Critical, High, Medium, Low)
 - **Team Collaboration**: Invite team members and track team metrics
+- **Slack Notifications**: Get review results delivered to your Slack channels
+- **Billing**: Subscription tiers (Free/Pro/Team) with Stripe integration
 - **RESTful API**: Easy integration with CI/CD pipelines
 
 ## Tech Stack
@@ -87,6 +89,13 @@ JWT_SECRET=your-super-secret-jwt-key
 OPENAI_API_KEY=sk-your-openai-api-key
 ANTHROPIC_API_KEY=sk-ant-your-anthropic-api-key
 CLIENT_URL=http://localhost:5173
+
+# Stripe (optional)
+STRIPE_SECRET_KEY=sk_test_xxx
+STRIPE_WEBHOOK_SECRET=whsec_xxx
+
+# Slack (optional)
+SLACK_BOT_TOKEN=xoxb-xxx
 ```
 
 ## API Endpoints
@@ -144,7 +153,7 @@ curl -X POST http://localhost:3001/api/reviews \
 ### Backend (Railway/Render)
 
 1. Connect your GitHub repository
-2. Set environment variables
+2. Set environment variables (see .env.production)
 3. Deploy
 
 ### Frontend (Vercel)

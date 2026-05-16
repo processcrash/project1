@@ -1,0 +1,14 @@
+{
+  "name": "codesentinel-api",
+  "version": "1.0.0",
+  "description": "CodeSentinel AI Code Review Platform - Railway deployment",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:migrate": "tsx src/config/migrate.ts"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

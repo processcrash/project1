@@ -8,6 +8,7 @@ import { projectRouter } from './routes/project';
 import { reviewRouter } from './routes/review';
 import { userRouter } from './routes/user';
 import { webhookRouter } from './routes/webhook';
+import { billingRouter } from './routes/billing';
 import { errorHandler } from './middleware/errorHandler';
 
 dotenv.config();
@@ -40,6 +41,7 @@ app.use('/api/projects', projectRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/users', userRouter);
 app.use('/api/webhooks', webhookRouter);
+app.use('/api/billing', billingRouter);
 
 // Health check
 app.get('/health', (_, res) => {

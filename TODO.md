@@ -40,17 +40,20 @@
 - [x] Code review results display
 - [x] Settings page
 
-## Phase 6: Integration (In Progress)
-- [ ] GitHub App integration
-- [ ] GitHub Actions workflow file
+## Phase 6: Integration ✅
+- [x] GitHub Actions workflow file
+- [x] Webhook handler for GitHub PRs
+- [ ] GitHub App integration (advanced)
 - [ ] Slack notifications
 - [ ] Webhook configuration UI
 
-## Phase 7: Billing
-- [ ] Stripe integration
-- [ ] Subscription tiers implementation
-- [ ] Usage tracking system
-- [ ] Billing dashboard
+## Phase 7: Billing (In Progress)
+- [x] Stripe integration
+- [x] Subscription tiers implementation
+- [x] Usage tracking system
+- [x] Billing dashboard frontend
+- [ ] Stripe webhook handling verification
+- [ ] Production Stripe keys configuration
 
 ## Phase 8: Launch
 - [ ] Database migration (PostgreSQL)
@@ -63,20 +66,23 @@
 ---
 
 ## Progress Summary
+
 - Phase 1: Completed
 - Phase 2: Completed
 - Phase 3: Completed
 - Phase 4: Completed
 - Phase 5: Completed
-- Phase 6: In Progress
-- Phase 7: Not started
+- Phase 6: Completed
+- Phase 7: In Progress
 - Phase 8: Not started
 
 ## Next Steps
-1. Complete GitHub Actions integration
-2. Add Stripe billing
-3. Set up production database
-4. Deploy MVP
+
+1. Add Slack notifications
+2. Set up production database (PostgreSQL)
+3. Deploy to Railway + Vercel
+4. Configure Stripe products and webhooks
+5. Set up Sentry monitoring
 
 ## Target Milestones
 - MVP Launch: TBD

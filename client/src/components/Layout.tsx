@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Shield, LogOut, User } from 'lucide-react';
+import { Shield, LogOut, User, CreditCard, LayoutDashboard } from 'lucide-react';
 
 interface LayoutProps {
   children: ReactNode;
@@ -25,6 +25,20 @@ export default function Layout({ children }: LayoutProps) {
               <Link to="/dashboard" className="flex items-center gap-2">
                 <Shield className="h-8 w-8 text-primary-600" />
                 <span className="font-bold text-xl text-gray-900">CodeSentinel</span>
+              </Link>
+              <Link
+                to="/dashboard"
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-gray-900"
+              >
+                <LayoutDashboard className="h-5 w-5" />
+                <span>Dashboard</span>
+              </Link>
+              <Link
+                to="/billing"
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-gray-900"
+              >
+                <CreditCard className="h-5 w-5" />
+                <span>Billing</span>
               </Link>
             </div>
 

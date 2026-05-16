@@ -1,0 +1,32 @@
+name: Code Review on PR
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ opened, synchronize, reopened ]
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get PR diff
+        id: diff
+        run: |
+          git diff origin/main...HEAD > pr.diff
+          echo "diff_file=pr.diff" >> $GITHUB_OUTPUT
+
+      - name: Run CodeSentinel Review
+        run: |
+          curl -X POST http://localhost:3001/api/reviews \
+            -H "Content-Type: application/json" \
+            -H "X-API-Key: ${{ secrets.CODESENTINEL_API_KEY }}" \
+            -d '{
+              "projectId": "'${{ secrets.CODESENTINEL_PROJECT_ID }}'",
+              "diff": "'$(cat pr.diff | head -c 50000)'",
+              "language": "typescript"
+            }'
+        continue-on-error: true
