@@ -1,0 +1,18 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "server": {
+    "port": 3001,
+    "runtime": "nodejs"
+  },
+  "routes": [
+    { "path": "/api/*", "dest": "/api" },
+    { "path": "/docs/*", "dest": "/docs" },
+    { "path": "/health", "dest": "/health" }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "PORT": "3001"
+  }
+}
