@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { projects as projectsApi, reviews as reviewsApi } from '../utils/api';
 import { Project, Review } from '../types';
 import { Plus, Code, Folder, Clock, AlertCircle, CheckCircle, Loader } from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function Dashboard() {
   const { user } = useAuth();
@@ -40,8 +41,10 @@ export default function Dashboard() {
       setNewProjectDesc('');
       setShowNewProject(false);
       loadData();
+      toast.success('Project created successfully');
     } catch (error) {
       console.error('Failed to create project:', error);
+      toast.error('Failed to create project');
     } finally {
       setIsCreating(false);
     }

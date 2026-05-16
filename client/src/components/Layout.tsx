@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Shield, LogOut, User, CreditCard, LayoutDashboard } from 'lucide-react';
+import NotificationBell from './NotificationBell';
 
 interface LayoutProps {
   children: ReactNode;
@@ -43,6 +44,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
 
             <div className="flex items-center gap-4">
+              <NotificationBell />
               <div className="flex items-center gap-2 text-gray-700">
                 <User className="h-5 w-5" />
                 <span>{user?.name}</span>

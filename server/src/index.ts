@@ -9,7 +9,10 @@ import { reviewRouter } from './routes/review';
 import { userRouter } from './routes/user';
 import { webhookRouter } from './routes/webhook';
 import { billingRouter } from './routes/billing';
+import { notificationRouter } from './routes/notification';
+import { analyticsRouter } from './routes/analytics';
 import { errorHandler } from './middleware/errorHandler';
+import { sentryMiddleware } from './config/sentry';
 
 dotenv.config();
 
@@ -42,6 +45,8 @@ app.use('/api/reviews', reviewRouter);
 app.use('/api/users', userRouter);
 app.use('/api/webhooks', webhookRouter);
 app.use('/api/billing', billingRouter);
+app.use('/api/notifications', notificationRouter);
+app.use('/api/analytics', analyticsRouter);
 
 // Health check
 app.get('/health', (_, res) => {
@@ -49,6 +54,7 @@ app.get('/health', (_, res) => {
 });
 
 // Error handling
+app.use(sentryMiddleware);
 app.use(errorHandler);
 
 app.listen(PORT, () => {

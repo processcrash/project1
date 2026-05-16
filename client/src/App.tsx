@@ -1,10 +1,12 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { Toaster } from 'react-hot-toast';
 import Landing from './pages/Landing';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import ProjectDetail from './pages/ProjectDetail';
+import ProjectSettings from './pages/ProjectSettings';
 import Billing from './pages/Billing';
 import Layout from './components/Layout';
 
@@ -62,6 +64,16 @@ function AppRoutes() {
           </ProtectedRoute>
         }
       />
+      <Route
+        path="/projects/:id/settings"
+        element={
+          <ProtectedRoute>
+            <Layout>
+              <ProjectSettings />
+            </Layout>
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
@@ -70,6 +82,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <Toaster position="top-right" />
         <AppRoutes />
       </AuthProvider>
     </BrowserRouter>
