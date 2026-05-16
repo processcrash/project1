@@ -11,6 +11,7 @@ import { webhookRouter } from './routes/webhook';
 import { billingRouter } from './routes/billing';
 import { notificationRouter } from './routes/notification';
 import { analyticsRouter } from './routes/analytics';
+import { docsRouter } from './routes/docs';
 import { errorHandler } from './middleware/errorHandler';
 import { sentryMiddleware } from './config/sentry';
 
@@ -38,7 +39,10 @@ app.use('/api/', limiter);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// Documentation
+app.use('/docs', docsRouter);
+
+// API Routes
 app.use('/api/auth', authRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/reviews', reviewRouter);

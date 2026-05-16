@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Shield, LogOut, User, CreditCard, LayoutDashboard } from 'lucide-react';
+import { Shield, LogOut, User, CreditCard, LayoutDashboard, Activity } from 'lucide-react';
 import NotificationBell from './NotificationBell';
 
 interface LayoutProps {
@@ -41,6 +41,15 @@ export default function Layout({ children }: LayoutProps) {
                 <CreditCard className="h-5 w-5" />
                 <span>Billing</span>
               </Link>
+              <a
+                href="/status"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:text-gray-900"
+              >
+                <Activity className="h-5 w-5" />
+                <span>Status</span>
+              </a>
             </div>
 
             <div className="flex items-center gap-4">

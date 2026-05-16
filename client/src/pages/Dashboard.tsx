@@ -2,14 +2,22 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { projects as projectsApi, reviews as reviewsApi } from '../utils/api';
+import api from '../utils/api';
 import { Project, Review } from '../types';
-import { Plus, Code, Folder, Clock, AlertCircle, CheckCircle, Loader } from 'lucide-react';
+import { Plus, Code, Folder, Clock, AlertCircle, CheckCircle, Loader, TrendingUp, Users, Star } from 'lucide-react';
 import toast from 'react-hot-toast';
+
+interface UserStats {
+  totalReviews: number;
+  totalProjects: number;
+  lastActive: string | null;
+}
 
 export default function Dashboard() {
   const { user } = useAuth();
   const [projectList, setProjectList] = useState<Project[]>([]);
   const [recentReviews, setRecentReviews] = useState<Review[]>([]);
+  const [userStats, setUserStats] = useState<UserStats | null>(null);
   const [showNewProject, setShowNewProject] = useState(false);
   const [newProjectName, setNewProjectName] = useState('');
   const [newProjectDesc, setNewProjectDesc] = useState('');
@@ -21,12 +29,14 @@ export default function Dashboard() {
 
   const loadData = async () => {
     try {
-      const [projectsRes, reviewsRes] = await Promise.all([
+      const [projectsRes, reviewsRes, statsRes] = await Promise.all([
         projectsApi.list(),
-        reviewsApi.getRecent(5)
+        reviewsApi.getRecent(5),
+        api.get('/analytics/me')
       ]);
       setProjectList(projectsRes.data);
       setRecentReviews(reviewsRes.data);
+      setUserStats(statsRes.data);
     } catch (error) {
       console.error('Failed to load dashboard data:', error);
     }
@@ -78,6 +88,47 @@ export default function Dashboard() {
           New Project
         </button>
       </div>
+
+      {/* Stats Cards */}
+      {userStats && (
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <div className="bg-white rounded-xl shadow-sm p-6">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 bg-primary-100 rounded-lg flex items-center justify-center">
+                <Code className="h-5 w-5 text-primary-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{userStats.totalReviews}</p>
+                <p className="text-sm text-gray-500">Total Reviews</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl shadow-sm p-6">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <Folder className="h-5 w-5 text-green-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">{userStats.totalProjects}</p>
+                <p className="text-sm text-gray-500">Projects Created</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-white rounded-xl shadow-sm p-6">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="h-5 w-5 text-purple-600" />
+              </div>
+              <div>
+                <p className="text-2xl font-bold text-gray-900">
+                  {userStats.lastActive ? new Date(userStats.lastActive).toLocaleDateString() : 'N/A'}
+                </p>
+                <p className="text-sm text-gray-500">Last Active</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Projects */}
