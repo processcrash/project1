@@ -45,6 +45,8 @@
 - [x] Webhook handler for GitHub PRs
 - [x] Slack notifications
 - [x] Rate limiting middleware
+- [x] Team management (invitations, roles)
+- [x] Dark mode support
 - [ ] GitHub App integration (advanced)
 - [ ] Webhook configuration UI
 
@@ -53,6 +55,7 @@
 - [x] Subscription tiers implementation
 - [x] Usage tracking system
 - [x] Billing dashboard frontend
+- [x] Team billing (Team tier)
 - [ ] Stripe webhook handling verification
 - [ ] Production Stripe keys configuration
 
@@ -65,6 +68,7 @@
 - [x] API documentation (Swagger)
 - [x] Status page
 - [x] Dashboard statistics
+- [x] Onboarding flow for new users
 - [ ] Deploy to production (Railway/Vercel)
 - [ ] Configure Stripe products
 - [ ] Set up GitHub App for PR reviews
