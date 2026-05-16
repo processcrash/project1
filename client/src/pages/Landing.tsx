@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Shield, Zap, Github, Star, ArrowRight } from 'lucide-react';
+import { Shield, Zap, Github, Star, ArrowRight, CheckCircle, Users, Code, Bug } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 export default function Landing() {
@@ -33,6 +33,10 @@ export default function Landing() {
       </header>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+        <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <Zap className="h-4 w-4" />
+          <span>AI-powered code review in seconds</span>
+        </div>
         <h1 className="text-5xl font-bold text-gray-900 mb-6">
           AI-Powered Code Review
           <br />
@@ -55,7 +59,44 @@ export default function Landing() {
         </div>
       </section>
 
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12 text-white">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-4">See CodeSentinel in Action</h2>
+              <p className="text-gray-300 mb-6">
+                Watch how our AI analyzes your pull requests, identifies issues, and provides actionable suggestions - all in real-time.
+              </p>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span>Automatic bug detection</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span>Security vulnerability scanning</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle className="h-5 w-5 text-green-400" />
+                  <span>Code quality scoring</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gray-700 rounded-xl p-4 h-64 flex items-center justify-center">
+              <div className="text-center text-gray-400">
+                <Code className="h-16 w-16 mx-auto mb-4 opacity-50" />
+                <p>Demo video coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Everything You Need for Better Code</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">Comprehensive code review tools that integrate seamlessly into your workflow</p>
+        </div>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
@@ -79,12 +120,39 @@ export default function Landing() {
           </div>
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+              <Bug className="h-6 w-6 text-primary-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Bug Detection</h3>
+            <p className="text-gray-600">
+              Find logic errors, null pointer exceptions, and common bugs before they cause production issues.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
               <Github className="h-6 w-6 text-primary-600" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">GitHub Integration</h3>
             <p className="text-gray-600">
               Seamlessly integrate with your GitHub workflow. Automatic reviews on pull requests
               with inline comments.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+              <Users className="h-6 w-6 text-primary-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Team Collaboration</h3>
+            <p className="text-gray-600">
+              Invite team members, track code quality metrics, and maintain high standards across your organization.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="h-12 w-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+              <Code className="h-6 w-6 text-primary-600" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Multi-Language</h3>
+            <p className="text-gray-600">
+              Support for JavaScript, TypeScript, Python, Go, Rust, Java, C++, and more.
             </p>
           </div>
         </div>
@@ -159,6 +227,16 @@ export default function Landing() {
               Contact Sales
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-primary-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Ship Better Code?</h2>
+          <p className="text-gray-600 mb-8">Join thousands of developers who use CodeSentinel to improve their code quality</p>
+          <Link to="/register" className="btn-primary text-lg px-8 py-3">
+            Get Started Free
+          </Link>
         </div>
       </section>
 
