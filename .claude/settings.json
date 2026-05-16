@@ -1,0 +1,9 @@
+{
+  "hooks": {
+    "onExit": [
+      {
+        "command": "echo '[会话结束] 任务完成时间: $(date)'"
+      }
+    ]
+  }
+}
