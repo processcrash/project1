@@ -12,6 +12,7 @@ import { billingRouter } from './routes/billing';
 import { notificationRouter } from './routes/notification';
 import { analyticsRouter } from './routes/analytics';
 import { docsRouter } from './routes/docs';
+import { teamRouter } from './routes/team';
 import { errorHandler } from './middleware/errorHandler';
 import { sentryMiddleware } from './config/sentry';
 
@@ -51,6 +52,7 @@ app.use('/api/webhooks', webhookRouter);
 app.use('/api/billing', billingRouter);
 app.use('/api/notifications', notificationRouter);
 app.use('/api/analytics', analyticsRouter);
+app.use('/api/teams', teamRouter);
 
 // Health check
 app.get('/health', (_, res) => {
