@@ -74,15 +74,17 @@
 - Phase 5: Completed
 - Phase 6: Completed
 - Phase 7: In Progress
-- Phase 8: Not started
+- Phase 8: Launch (In Progress)
 
 ## Next Steps
 
-1. Add Slack notifications
-2. Set up production database (PostgreSQL)
-3. Deploy to Railway + Vercel
-4. Configure Stripe products and webhooks
-5. Set up Sentry monitoring
+1. Push code to GitHub: `git remote add origin https://github.com/processcrash/project1.git && git push -u origin master`
+2. Configure Stripe products in dashboard
+3. Deploy backend to Railway
+4. Deploy frontend to Vercel
+5. Set up GitHub App for PR reviews
+6. Add analytics (Plausible/Posthog)
+7. Start marketing: DEV.to, HackerNews, Twitter
 
 ## Target Milestones
 - MVP Launch: TBD

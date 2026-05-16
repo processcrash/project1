@@ -29,6 +29,7 @@ function parseRequirements(content) {
 }
 
 console.log('[Hook] 检查任务状态...');
+console.log('[Hook] 如果有未完成的任务，请继续完成');
 
 const todoContent = readFile(TODO_PATH);
 const requirementsContent = readFile(REQUIREMENTS_PATH);
